@@ -1,0 +1,45 @@
+candidato_X = 0
+candidato_Y = 0
+candidato_Z = 0
+branco = 0
+
+while True:
+    vote = input("Digite seu voto (1 para candidato X, 2 para candidato Y, 3 para candidato Z ou 0 para branco): ")
+
+    if vote.isdigit():
+        vote = int(vote)
+
+        if vote == 1:
+            candidato_X += 1
+        elif vote == 2:
+            candidato_Y += 1
+        elif vote == 3:
+            candidato_Z += 1
+        elif vote == 0:
+            branco += 1
+        else:
+            print("Voto inválido! Por favor, vote novamente.")
+    else:
+        print("Entrada inválida! Por favor, vote novamente.")
+
+    end_poll = input("Deseja encerrar a enquete? (sim/não): ")
+
+    if end_poll.lower() == "sim":
+        break
+
+total_votos = candidato_X + candidato_Y + candidato_Z + branco
+
+print("Resultados da eleição:")
+print("Candidate X: ", candidate_X)
+print("Candidate Y: ", candidate_Y)
+print("Candidate Z: ", candidate_Z)
+print("White/Null votes: ", white)
+
+if candidato_X > candidato_Y and candidato_X > candidato_Z:
+    print("Candidato X vencedor!")
+elif candidato_Y > candidato_X and candidato_Y > candidato_Z:
+    print("Candidato Y vencedor!")
+elif candidato_Z > candidato_X and candidato_Z > candidato_Y:
+    print("Candidato Z vencedor!")
+else:
+    print("Empate!")
